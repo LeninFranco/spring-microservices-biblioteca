@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: msvc-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: books-categories
+          uri: http://localhost:8090
+          predicates:
+            - Path=/categorias/**
+        - id: books-books
+          uri: http://localhost:8090
+          predicates:
+            - Path=/libros/**
+        - id: books-authors
+          uri: http://localhost:8090
+          predicates:
+            - Path=/autores/**
+        - id: members
+          uri: http://localhost:8092
+          predicates:
+            - Path=/miembros/**
+        - id: loans
+          uri: http://localhost:8091
+          predicates:
+            - Path=/prestamos/**

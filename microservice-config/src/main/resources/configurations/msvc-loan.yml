@@ -1,0 +1,22 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: msvc-loan
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/prestamos
+    username: root
+    password: P0L1m4s7er
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database:
+      platform: org.hibernate.dialect.MySQL8Dialect
+  eureka:
+    instance:
+      hostname: localhost
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka
